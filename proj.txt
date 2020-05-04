@@ -1,0 +1,25 @@
+*data collection
+ -cv2--webcam rectangular grid--50 photos stored in dataset folder
+ -sqlite3-same photos are given id as per faces for eg *.1-*.50
+
+*training 
+ -faces,ids = getImagesAndLabels(path)--through this function
+  recognizer.train(faces, np.array(ids))--faces and their numpy ID is been studied
+    -where recognizer = cv2.face.LBPHFaceRecognizer_create()
+ -detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");--maybe used for grey scale learning
+
+*rercognizing in real-time
+ -recognizer.read('trainer/trainer.yml')--are read and recognized from here
+ -using cv2 pics are classified and the profile is captured from sqlite People table using def getProfile(id) function
+ -gives out rectangulation on face with the persons name and gender
+
+*Login window
+ -used sqlite3 and pyQt designer and its widgets
+ -data can be stored directly of the camera's authority in sqlite table Authority
+ -if the data is wrong it outputs a dialougbox of showing error of "Enter correct details"
+ 
+*Main GUI
+ -has buttons with on click function for data collection as Webcam
+                                     for training has train
+                                     for recognizing it has run s/w
+ -uses subprocess module too
